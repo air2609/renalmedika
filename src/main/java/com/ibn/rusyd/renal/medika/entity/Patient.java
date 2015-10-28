@@ -5,11 +5,15 @@
  */
 package com.ibn.rusyd.renal.medika.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -53,5 +57,8 @@ public class Patient {
     
     @Column(name = "patient_type", length = 2)
     private String patientType; 
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "patient")
+    private List<Registration> regList = new ArrayList<>();
     
 }
