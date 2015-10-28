@@ -5,10 +5,14 @@
  */
 package com.ibn.rusyd.renal.medika.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -27,5 +31,8 @@ public class Ward {
     
     @Column(nullable = false, name = "v_name")
     private String name;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Room> listRooms = new ArrayList<>();
      
 }
