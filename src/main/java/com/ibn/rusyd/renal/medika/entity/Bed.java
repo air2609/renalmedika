@@ -5,34 +5,33 @@
  */
 package com.ibn.rusyd.renal.medika.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author arifullah
  */
-@Entity(name = "ms_ward")
-public class Ward {
+@Entity(name = "ms_bed")
+public class Bed {
     
     @Id @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
-    @Column(nullable = false, unique = true, length = 5)
+    @Column(nullable = false, length = 10)
     private String code;
     
-    @Column(nullable = false, name = "v_name")
+    @Column(name = "bed_name")
     private String name;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "ward")
-    private List<Room> listRooms = new ArrayList<>();
-     
+    @ManyToOne
+    @JoinColumn(name = "room_id", nullable = false)
+    private Room room;
+    
 }
