@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +51,15 @@ public class WardDaoTest {
             Assert.assertTrue(rs.next());
             Long jumlahRow = rs.getLong("jumlah");
             Assert.assertEquals(1L, jumlahRow.longValue());
+        }
+    }
+    
+    @After
+    public void hapusData() throws SQLException{
+        String sql = "delete from ms_ward where code='SER1'";
+        
+        try (Connection con = ds.getConnection()) {
+            con.createStatement().executeUpdate(sql);
         }
     }
     
