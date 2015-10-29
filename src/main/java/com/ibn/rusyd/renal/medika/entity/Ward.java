@@ -13,7 +13,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -27,9 +30,14 @@ public class Ward {
     private String id;
     
     @Column(nullable = false, unique = true, length = 5)
+    @NotNull
+    @NotEmpty
+    @Size(min = 3, max = 5)
     private String code;
     
     @Column(nullable = false, name = "v_name")
+    @NotNull
+    @NotEmpty
     private String name;
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "ward")
