@@ -34,17 +34,30 @@ public class WardController {
     private String showForm(@RequestParam(value = "id", required = false) String id, Model m){
         m.addAttribute("ward", new Ward());
         if(id != null && !id.isEmpty()){
-            m.addAttribute("ward", wd.findOne(id));
+            Ward ward = wd.findOne(id);
+            if(ward != null){
+                m.addAttribute("ward", wd.findOne(id));
+            }
+            
         }
         return "/ward/form";
     }
     
+    @RequestMapping(value = "/delete")
+    private String delete(@RequestParam(value = "id", required = true) String id){
+        wd.delete(id);
+        return "redirect:list";
+    }
+    
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    private String processForm(@Valid Ward ward , BindingResult errors){
+    private String processForm(@Valid Ward w , BindingResult errors){
+        
         if(errors.hasErrors()){
             return "/ward/form";
         }
-        wd.save(ward);
+   
+        wd.save(w);
+        
         return "redirect:list";
     }
 }
