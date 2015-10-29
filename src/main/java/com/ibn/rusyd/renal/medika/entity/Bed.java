@@ -40,6 +40,45 @@ public class Bed {
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "bed")
     private List<Registration> regList = new ArrayList<>();
-    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public List<Registration> getRegList() {
+        return regList;
+    }
+
+    public void setRegList(List<Registration> regList) {
+        this.regList = regList;
+    }
     
 }

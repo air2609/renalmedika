@@ -60,5 +60,95 @@ public class Patient {
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "patient")
     private List<Registration> regList = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getMrCode() {
+        return mrCode;
+    }
+
+    public void setMrCode(String mrCode) {
+        this.mrCode = mrCode;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAlternatePhone() {
+        return alternatePhone;
+    }
+
+    public void setAlternatePhone(String alternatePhone) {
+        this.alternatePhone = alternatePhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPatientCategory() {
+        return patientCategory;
+    }
+
+    public void setPatientCategory(String patientCategory) {
+        this.patientCategory = patientCategory;
+    }
+
+    public String getPatientType() {
+        return patientType;
+    }
+
+    public void setPatientType(String patientType) {
+        this.patientType = patientType;
+    }
+
+    public List<Registration> getRegList() {
+        return regList;
+    }
+
+    public void setRegList(List<Registration> regList) {
+        this.regList = regList;
+    }
+    
+    
     
 }

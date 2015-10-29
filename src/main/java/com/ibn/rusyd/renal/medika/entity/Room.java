@@ -40,4 +40,46 @@ public class Room {
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "room")
     private List<Bed> listBed = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Ward getWard() {
+        return ward;
+    }
+
+    public void setWard(Ward ward) {
+        this.ward = ward;
+    }
+
+    public List<Bed> getListBed() {
+        return listBed;
+    }
+
+    public void setListBed(List<Bed> listBed) {
+        this.listBed = listBed;
+    }
+    
+    
 }
