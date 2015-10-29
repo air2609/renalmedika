@@ -22,7 +22,8 @@
                     <td th:text="${w.code}">code</td>
                     <td th:text="${w.name}"></td>
                     <td>
-                        VIEW|EDIT|DELETE
+                        <a href="form.html" th:href="@{'/ward/form'(id=${w.id})}">EDIT </a> |
+                        <a href="form.html" th:href="@{'/ward/delete'(id=${w.id})}">DELETE</a>
                     </td>
                 </tr>
               </tbody>
